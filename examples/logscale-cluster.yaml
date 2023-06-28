@@ -1,0 +1,95 @@
+apiVersion: core.humio.com/v1alpha1
+kind: HumioCluster
+metadata:
+  name: example-humiocluster
+spec:
+  # select latest/stable image 
+  image: "humio/humio-core:1.88.0"
+  nodeCount: 1
+  license:
+    secretKeyRef:
+       # Secret must be created with the following command: kubectl create secret generic example-humiocluster-license --from-literal=data=<license>
+      name: example-humiocluster-license
+      key: data
+  tls:
+    enabled: false
+  targetReplicationFactor: 1
+  storagePartitionsCount: 24
+  digestPartitionsCount: 24
+   
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: humio_node_type
+            operator: In
+            values:
+            - core
+        - matchExpressions:
+          - key: kubernetes.io/arch
+            operator: In
+            values:
+            - amd64
+        - matchExpressions:
+          - key: kubernetes.io/os
+            operator: In
+            values:
+            - linux
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: app
+            operator: In
+            values:
+            - humio-core
+        topologyKey: kubernetes.io/hostname
+
+  dataVolumePersistentVolumeClaimSpecTemplate:
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 10Gi 
+    storageClassName: managed-csi
+
+  environmentVariables:
+    - name: "AUTHENTICATION_METHOD"
+      value: "single-user"
+    - name: "SINGLE_USER_PASSWORD"
+      value: "<password here>"
+    - name: "KAFKA_SERVERS"
+      value: "my-cluster-kafka-bootstrap:9092"
+    - name: PUBLIC_URL
+      value: https://example-humiocluster.logscale.local
+    - name: USING_EPHEMERAL_DISKS
+      value: "true"
+    - name: S3_STORAGE_ENDPOINT_BASE
+      value: http://s3proxy
+    - name: S3_STORAGE_ACCESSKEY
+      value: "<Azure Storage access key>"
+    - name: S3_STORAGE_SECRETKEY
+      value: "Azure Storage access key>"
+    - name: LOCAL_STORAGE_PERCENTAGE
+      value: "80"
+    - name: S3_STORAGE_PATH_STYLE_ACCESS
+      value: "true"
+    - name: S3_STORAGE_IBM_COMPAT
+      value: "true"
+    - name:  BUCKET_STORAGE_IGNORE_ETAG_UPLOAD 
+      value: "true"
+    - name:  BUCKET_STORAGE_IGNORE_ETAG_AFTER_UPLOAD 
+      value: "false"
+    - name: BUCKET_STORAGE_SSE_COMPATIBLE
+      value: "true"
+    - name: S3_STORAGE_ENCRYPTION_KEY
+      value: "off"
+    - name: S3_STORAGE_BUCKET
+      value: "<azure storage blob container>"
+    - name: S3_ARCHIVING_PATH_STYLE_ACCESS
+      value: "true"
+    - name: S3_EXPORT_PATH_STYLE_ACCESS
+      value: "true"
+    - name: S3_STORAGE_PREFERRED_COPY_SOURCE
+      value: "true"
