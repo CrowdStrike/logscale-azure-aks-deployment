@@ -47,7 +47,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 
 - kubectl get svc
 
-**2. Deploy Kafka/ZooKeeper to the AKS cluster using ** [**strimzi-kafka-operator**](https://github.com/strimzi/strimzi-kafka-operator)[operator](https://github.com/strimzi/strimzi-kafka-operator)
+**2. Deploy Kafka/ZooKeeper to the AKS cluster using [strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
 
   - Deploy the strimzi-kafka-operator (kafka/k8s orchestration facility - [strimzi key features](https://strimzi.io/docs/operators/latest/overview.html#key-features-product_str))
     - Execute following commands in K8s environment
