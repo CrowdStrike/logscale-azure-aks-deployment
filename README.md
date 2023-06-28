@@ -47,7 +47,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 
 - kubectl get svc
 
-**2. Deploy Kafka/ZooKeeper to the AKS cluster using [strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
+**2. Deploy Kafka/ZooKeeper to the AKS cluster using [strimzi-kafka-operator]**(https://github.com/strimzi/strimzi-kafka-operator)
 
   - Deploy the strimzi-kafka-operator (kafka/k8s orchestration facility - [strimzi key features](https://strimzi.io/docs/operators/latest/overview.html#key-features-product_str))
     - Execute following commands in K8s environment
@@ -153,10 +153,11 @@ Validate the cluster is up and running by checking kubernetes service status:
 - Test connectivity and availability of LogScale cluster forwarding the port locally
   - kubectl port-forward svc/example-humiocluster 8888:8080\
 
-**6. Deploy Application gateway and enable Application Gateway Ingress Controller Add-on to access LogScale App from the Internet**
+**6. Deploy Application gateway and enable AGIC**
+- Deploy Application Gateway Ingress Controller Add-on to access LogScale App from the Internet
+  - [Create and configure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/quick-create-portal)
+  - [Enable the ingress controller add-on for a new AKS cluster](https://learn.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new)
 
-- [Create and configure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/quick-create-portal)
-- [Enable the ingress controller add-on for a new AKS cluster](https://learn.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new)
 
 - More information:
   - [LogScale K8s Reference Architecture](https://library.humio.com/falcon-logscale-self-hosted/installation-k8s-ref-arch.html)
