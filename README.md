@@ -1,4 +1,4 @@
-                                                    \**LogScale Cluster Deployment in Azure AKS**
+          **LogScale Cluster Deployment in Azure AKS**
 
 **Overview** :
 
