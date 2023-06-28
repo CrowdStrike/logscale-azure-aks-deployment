@@ -1,6 +1,6 @@
-**LogScale Cluster Deployment in Azure AKS**
+#LogScale Cluster Deployment in Azure AKS
 
-**Overview** :
+##Overview :
 
 This document is a guide to provision a self-hosted LogScale cluster on Azure Cloud using Azure AKS kubernetes, with Azure object store for event repositories.
 
@@ -11,13 +11,13 @@ Notes:
 - This cluster deployment utilizes an independent Kafka service.
 - This document assumes at least intermediate level knowledge of Azure Cloud.
 
-**Architectural Diagrams:**
+##Architectural Diagrams:
 
-Deployment Overview:
+**Deployment Overview:**
 
 ![dep_overview](/docs/asset/dep-overview.png) 
 
-Functional Overview:
+**Functional Overview:**
 
 ![fun-overview](/docs/asset/fun-overview.png) 
 
@@ -35,9 +35,9 @@ Functional Overview:
 - Good understanding of [Azure Resource groups](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal)
 - Good understanding Kubernetes
 
-**Deployment:**
+##Deployment:
 
-1. Create an AKS cluster using any of the following methods:
+**1. Create an AKS cluster using any of the following methods:**
 
   - [Azure CLI](https://learn.microsoft.com/en-us/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli)
   - [Azure Portal](https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-portal?tabs=azure-cli#create-an-aks-cluster)
@@ -47,7 +47,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 
 - kubectl get svc
 
-2. Deploy Kafka/ZooKeeper to the AKS cluster using the [**strimzi**](https://github.com/strimzi/strimzi-kafka-operator)[operator](https://github.com/strimzi/strimzi-kafka-operator)
+**2. Deploy Kafka/ZooKeeper to the AKS cluster using ** [**strimzi-kafka-operator**](https://github.com/strimzi/strimzi-kafka-operator)[operator](https://github.com/strimzi/strimzi-kafka-operator)
 
   - Deploy the strimzi-kafka-operator (kafka/k8s orchestration facility - [strimzi key features](https://strimzi.io/docs/operators/latest/overview.html#key-features-product_str))
     - Execute following commands in K8s environment
@@ -71,7 +71,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 - kubectl get pods
 - kubectl get svc
 
-3. Deploy S3Proxy
+**3. Deploy S3Proxy**
 
   - LogScale supports S3 compatible storage using S3Proxy service. Azure Blob Storage is one of them. For more information on S3Proxy, see [here](https://github.com/gaul/s3proxy).
   - Provision S3Proxy node(s)
@@ -93,7 +93,7 @@ Validate the cluster is up and running by checking kubernetes service status:
     - Apply S3Proxy & S3Proxy service (see sample s3proxy-service.yaml)
   - Verify that s3proxy pod and service are running.
 
-4. Deploy LogScale
+**4. Deploy LogScale**
 
   - Deploy LogScale Operator (see setup\_logscale.sh)
     - Obtain the latest stable version from [LogScale Operator Releases](https://github.com/humio/humio-operator/releases).
@@ -145,7 +145,7 @@ Validate the cluster is up and running by checking kubernetes service status:
       - kubectl get pods
       - kubectl describe pod \<humio-cluster-name\>
 
-5. Test and Verify
+**5. Test and Verify**
 
 - Check availability of pods and services
   - kubectl get pods
@@ -153,7 +153,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 - Test connectivity and availability of LogScale cluster forwarding the port locally
   - kubectl port-forward svc/example-humiocluster 8888:8080\
 
-6. Once verification is done, deploy Application gateway and enable Application Gateway Ingress Controller Add-on to access LogScale App from the Internet
+**6. Deploy Application gateway and enable Application Gateway Ingress Controller Add-on to access LogScale App from the Internet**
 
 - [Create and configure Application Gateway](https://learn.microsoft.com/en-us/azure/application-gateway/quick-create-portal)
 - [Enable the ingress controller add-on for a new AKS cluster](https://learn.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new)
