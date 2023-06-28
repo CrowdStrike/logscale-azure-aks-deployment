@@ -1,4 +1,4 @@
-<p style="text-align: center;">**LogScale Cluster Deployment in Azure AKS**</p>
+                                                    **LogScale Cluster Deployment in Azure AKS**
 
 **Overview** :
 
