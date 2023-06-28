@@ -77,19 +77,19 @@ Validate the cluster is up and running by checking kubernetes service status:
   - Provision S3Proxy node(s)
     - Configure parameters as required (see sample s3proxy.yaml)
       - \- name: S3PROXY\_AUTHORIZATION\
-        value: "none"
+         value: "none"
       - \- name: JCLOUDS\_PROVIDER\
-        value "azureblob"
+         value "azureblob"
       - \- name: JCLOUDS\_ENDPOINT\
-        value: "Azure storage a/c endpoint"
+         value: "Azure storage a/c endpoint"
       - \- name: JCLOUDS\_IDENTITY\
-        value: "\<Azure storage a/c name\>"
+         value: "\<Azure storage a/c name\>"
       - \- name: JCLOUDS\_CREDENTIAL\
-        value: \<Azure storage a/c access key\>
+         value: \<Azure storage a/c access key\>
       - \- name: JCLOUDS\_AZYREBLOB\_AUTH\
-        value: "azureKey"
+         value: "azureKey"
       - \- name: LOG\_LEVEL\
-        value: "debug"
+         value: "debug"
     - Apply S3Proxy & S3Proxy service (see sample s3proxy-service.yaml)
   - Verify that s3proxy pod and service are running.
 
@@ -109,35 +109,35 @@ Validate the cluster is up and running by checking kubernetes service status:
         - digestPartitionsCount
       - Set the Env. variables under spec.environmentVariables which are required to enable the S3 compatible storage
         - \- name: USING\_EPHEMERAL\_DISKS\
-          value: "true"
+           value: "true"
         - \- name: S3\_STORAGE\_ENDPOINT\_BASE\
-          value: \<s3proxy endpoint\>
+           value: \<s3proxy endpoint\>
         - \- name: S3\_STORAGE\_ACCESSKEY\
-          value: \<Azure Storage a/c accesskey\>
+           value: \<Azure Storage a/c accesskey\>
         - \- name: S3\_STORAGE\_SECRETKEY\
-          value: \<Azure Storage a/c accesskey\>
+           value: \<Azure Storage a/c accesskey\>
         - \- name: LOCAL\_STORAGE\_PERCENTAGE\
-          value: 80
+           value: 80
         - \- name: S3\_STORAGE\_PATH\_STYLE\_ACCESS\
-          value: "true"
+           value: "true"
         - \- name: S3\_STORAGE\_IBM\_COMPAT\
-          value: "true"
+           value: "true"
         - \- name: BUCKET\_STORAGE\_IGNORE\_ETAG\_UPLOAD\
-          value: "true"
+           value: "true"
         - \- name: BUCKET\_STORAGE\_IGNORE\_ETAG\_AFTER\_UPLOAD\
-          value: "false"
+           value: "false"
         - \- name: BUCKET\_STORAGE\_SSE\_COMPATIBLE\
-          value: "true"
+           value: "true"
         - \- name: S3\_STORAGE\_ENCRYPTION\_KEY\
-          value: "off"
+           value: "off"
         - \- name: S3\_STORAGE\_BUCKET\
-          value: "\<blob container\>"
+           value: "\<blob container\>"
         - \- name: S3\_ARCHIVING\_PATH\_STYLE\_ACCESS\
-          value: "true"
+           value: "true"
         - \- name: S3\_EXPORT\_PATH\_STYLE\_ACCESS\
-          value: "true"
+           value: "true"
         - \- name: S3\_STORAGE\_PREFERRED\_COPY\_SOURCE\
-          value: "true"
+           value: "true"
 
         More information on environment variables : [Falcon LogScale - Configuration Parameters](https://library.humio.com/falcon-logscale-self-hosted/envar.html)\
       - Apply HumioCluster yaml
