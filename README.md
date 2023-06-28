@@ -1,6 +1,6 @@
-#LogScale Cluster Deployment in Azure AKS
+# LogScale Cluster Deployment in Azure AKS
 
-##Overview :
+## Overview :
 
 This document is a guide to provision a self-hosted LogScale cluster on Azure Cloud using Azure AKS kubernetes, with Azure object store for event repositories.
 
@@ -11,7 +11,7 @@ Notes:
 - This cluster deployment utilizes an independent Kafka service.
 - This document assumes at least intermediate level knowledge of Azure Cloud.
 
-##Architectural Diagrams:
+## Architectural Diagrams:
 
 **Deployment Overview:**
 
@@ -21,7 +21,7 @@ Notes:
 
 ![fun-overview](/docs/asset/fun-overview.png) 
 
-**Prerequisites** :
+## Prerequisites :
 
 - Falcon LogScale License Key
 - LogScale Instance sizing guidelines:
@@ -35,7 +35,7 @@ Notes:
 - Good understanding of [Azure Resource groups](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal)
 - Good understanding Kubernetes
 
-##Deployment:
+## Deployment:
 
 **1. Create an AKS cluster using any of the following methods:**
 
