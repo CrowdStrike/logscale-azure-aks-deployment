@@ -160,7 +160,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 
 
 
-##Useful Links:
+**Useful Links:**
   - [LogScale K8s Reference Architecture](https://library.humio.com/falcon-logscale-self-hosted/installation-k8s-ref-arch.html)
   - [K8s core concept for AKS](https://learn.microsoft.com/en-us/azure/aks/concepts-clusters-workloads)
 
