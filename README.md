@@ -121,7 +121,7 @@ Validate the cluster is up and running by checking kubernetes service status:
         | S3\_EXPORT\_PATH\_STYLE\_ACCESS | `true` |
         | S3\_STORAGE\_PREFERRED\_COPY\_SOURCE | `true`
 
-        More information on environment variables : [Falcon LogScale - Configuration Parameters](https://library.humio.com/falcon-logscale-self-hosted/envar.html)\
+        More information on environment variables : [Falcon LogScale - Configuration Parameters](https://library.humio.com/falcon-logscale-self-hosted/envar.html)
       - Apply HumioCluster yaml
     - Status of each container can be checked by running following command:
       - kubectl get pods
