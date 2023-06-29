@@ -76,20 +76,15 @@ Validate the cluster is up and running by checking kubernetes service status:
   - LogScale supports S3 compatible storage using S3Proxy service. Azure Blob Storage is one of them. For more information on S3Proxy, see [here](https://github.com/gaul/s3proxy).
   - Provision S3Proxy node(s)
     - Configure parameters as required (see sample s3proxy.yaml)
-      - \- name: S3PROXY\_AUTHORIZATION\
-         value: "none"
-      - \- name: JCLOUDS\_PROVIDER\
-         value "azureblob"
-      - \- name: JCLOUDS\_ENDPOINT\
-         value: "Azure storage a/c endpoint"
-      - \- name: JCLOUDS\_IDENTITY\
-         value: "\<Azure storage a/c name\>"
-      - \- name: JCLOUDS\_CREDENTIAL\
-         value: \<Azure storage a/c access key\>
-      - \- name: JCLOUDS\_AZYREBLOB\_AUTH\
-         value: "azureKey"
-      - \- name: LOG\_LEVEL\
-         value: "debug"
+      | Name | Value |
+      | :-- | :-- |
+      | S3PROXY\_AUTHORIZATION | `none` |
+      | JCLOUDS\_PROVIDER | `azureblob` |
+      | JCLOUDS\_ENDPOINT | \<Azure storage a/c endpoint\> |
+      | JCLOUDS\_IDENTITY | \<Azure storage a/c name\> |
+      | JCLOUDS\_CREDENTIAL | \<Azure storage a/c access key\> |
+      | JCLOUDS\_AZYREBLOB\_AUTH | `azureKey` |
+      | LOG\_LEVEL | `debug` |
     - Apply S3Proxy & S3Proxy service (see sample s3proxy-service.yaml)
   - Verify that s3proxy pod and service are running.
 
