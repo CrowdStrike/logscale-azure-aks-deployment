@@ -109,7 +109,7 @@ Validate the cluster is up and running by checking kubernetes service status:
         | S3\_STORAGE\_ENDPOINT\_BASE | \<s3proxy endpoint\> |
         | S3\_STORAGE\_ACCESSKEY | \<Azure Storage a/c accesskey\> |
         | S3\_STORAGE\_SECRETKEY | \<Azure Storage a/c accesskey\> |
-        | LOCAL\_STORAGE\_PERCENTAGE | value: "80" |
+        | LOCAL\_STORAGE\_PERCENTAGE | "80" |
         | S3\_STORAGE\_PATH\_STYLE\_ACCESS | `true` |
         | S3\_STORAGE\_IBM\_COMPAT | `true` |
         | BUCKET\_STORAGE\_IGNORE\_ETAG\_UPLOAD | `true` |
