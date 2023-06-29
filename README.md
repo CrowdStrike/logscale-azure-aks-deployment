@@ -159,9 +159,10 @@ Validate the cluster is up and running by checking kubernetes service status:
   - [Enable the ingress controller add-on for a new AKS cluster](https://learn.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-new)
 
 
-- More information:
+
+##Useful Links:
   - [LogScale K8s Reference Architecture](https://library.humio.com/falcon-logscale-self-hosted/installation-k8s-ref-arch.html)
   - [K8s core concept for AKS](https://learn.microsoft.com/en-us/azure/aks/concepts-clusters-workloads)
 
-<p align="center"><img src="docs/asset/cs-logo-footer.png"><BR/><img width="250px" src="docs/asset/adversary-red-eyes.png"></P>
+<p align="center"><img src="docs/asset/cs-logo-footer.png"><BR/><img width="150px" src="docs/asset/adversary-red-eyes.png"></P>
 <h3><P align="center">WE STOP BREACHES</P></h3>
