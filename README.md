@@ -48,7 +48,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 - kubectl get svc
 
 **2. Deploy Kafka/ZooKeeper to the AKS cluster using the** [strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
-  - Note: Default partition count is 24. Refer to the [LogScale Digest Rules](https://library.humio.com/falcon-logscale-self-hosted/cluster-management-digest-rules.html)
+  - Note: Default partition count is 24. For details, refer to the [LogScale Digest Rules](https://library.humio.com/falcon-logscale-self-hosted/cluster-management-digest-rules.html)
   - Deploy the strimzi-kafka-operator (kafka/k8s orchestration facility - [strimzi key features](https://strimzi.io/docs/operators/latest/overview.html#key-features-product_str))
     - Execute following commands in K8s environment
       - helm repo add strimzi [https://strimzi.io/charts/](https://strimzi.io/charts/)
@@ -73,7 +73,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 
 **3. Deploy S3Proxy**
 
-  - LogScale supports S3 compatible storage using S3Proxy service. Azure Blob Storage is one of them. For more information on S3Proxy, see [here](https://github.com/gaul/s3proxy).
+  - LogScale supports S3 compatible storage using S3Proxy service. Azure Blob Storage is one of them. For details, refer to the [S3Proxy documentation](https://github.com/gaul/s3proxy).
   - Provision S3Proxy node(s)
     - Configure parameters as required (see sample s3proxy.yaml)
       | Name | Value |
@@ -89,7 +89,7 @@ Validate the cluster is up and running by checking kubernetes service status:
   - Verify that s3proxy pod and service are running.
 
 **4. Deploy LogScale**
-  - Note: This deployment uses NODE\_ROLES="all". For details, refer to [NODE_ROLES](https://library.humio.com/falcon-logscale-self-hosted/envar-node-roles.html) 
+  - Note: This deployment uses NODE\_ROLES="all". For details, refer to the [NODE_ROLES documentation](https://library.humio.com/falcon-logscale-self-hosted/envar-node-roles.html) 
   - Deploy LogScale Operator (see setup\_logscale.sh)
     - Obtain the latest stable version from [LogScale Operator Releases](https://github.com/humio/humio-operator/releases).
     - Apply LogScale CRDs & Operator
