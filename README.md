@@ -103,36 +103,23 @@ Validate the cluster is up and running by checking kubernetes service status:
         - storagePartitionsCount
         - digestPartitionsCount
       - Set the Env. variables under spec.environmentVariables which are required to enable the S3 compatible storage
-        - \- name: USING\_EPHEMERAL\_DISKS\
-           value: "true"
-        - \- name: S3\_STORAGE\_ENDPOINT\_BASE\
-           value: \<s3proxy endpoint\>
-        - \- name: S3\_STORAGE\_ACCESSKEY\
-           value: \<Azure Storage a/c accesskey\>
-        - \- name: S3\_STORAGE\_SECRETKEY\
-           value: \<Azure Storage a/c accesskey\>
-        - \- name: LOCAL\_STORAGE\_PERCENTAGE\
-           value: 80
-        - \- name: S3\_STORAGE\_PATH\_STYLE\_ACCESS\
-           value: "true"
-        - \- name: S3\_STORAGE\_IBM\_COMPAT\
-           value: "true"
-        - \- name: BUCKET\_STORAGE\_IGNORE\_ETAG\_UPLOAD\
-           value: "true"
-        - \- name: BUCKET\_STORAGE\_IGNORE\_ETAG\_AFTER\_UPLOAD\
-           value: "false"
-        - \- name: BUCKET\_STORAGE\_SSE\_COMPATIBLE\
-           value: "true"
-        - \- name: S3\_STORAGE\_ENCRYPTION\_KEY\
-           value: "off"
-        - \- name: S3\_STORAGE\_BUCKET\
-           value: "\<blob container\>"
-        - \- name: S3\_ARCHIVING\_PATH\_STYLE\_ACCESS\
-           value: "true"
-        - \- name: S3\_EXPORT\_PATH\_STYLE\_ACCESS\
-           value: "true"
-        - \- name: S3\_STORAGE\_PREFERRED\_COPY\_SOURCE\
-           value: "true"
+        | Name | Value |
+        | :-- | :-- |
+        | USING\_EPHEMERAL\_DISKS | `true` |
+        | S3\_STORAGE\_ENDPOINT\_BASE | \<s3proxy endpoint\> |
+        | S3\_STORAGE\_ACCESSKEY | \<Azure Storage a/c accesskey\> |
+        | S3\_STORAGE\_SECRETKEY | \<Azure Storage a/c accesskey\> |
+        | LOCAL\_STORAGE\_PERCENTAGE | value: "80" |
+        | S3\_STORAGE\_PATH\_STYLE\_ACCESS | `true` |
+        | S3\_STORAGE\_IBM\_COMPAT | `true` |
+        | BUCKET\_STORAGE\_IGNORE\_ETAG\_UPLOAD | `true` |
+        | BUCKET\_STORAGE\_IGNORE\_ETAG\_AFTER\_UPLOAD | `false` |
+        | BUCKET\_STORAGE\_SSE\_COMPATIBLE | `true` |
+        | S3\_STORAGE\_ENCRYPTION\_KEY | `off` |
+        | S3\_STORAGE\_BUCKET | "\<blob container\>" |
+        | S3\_ARCHIVING\_PATH\_STYLE\_ACCESS | `true` |
+        | S3\_EXPORT\_PATH\_STYLE\_ACCESS | `true` |
+        | S3\_STORAGE\_PREFERRED\_COPY\_SOURCE | `true`
 
         More information on environment variables : [Falcon LogScale - Configuration Parameters](https://library.humio.com/falcon-logscale-self-hosted/envar.html)\
       - Apply HumioCluster yaml
@@ -146,7 +133,7 @@ Validate the cluster is up and running by checking kubernetes service status:
   - kubectl get pods
   - kubectl get svc
 - Test connectivity and availability of LogScale cluster forwarding the port locally
-  - kubectl port-forward svc/example-humiocluster 8888:8080\
+  - kubectl port-forward svc/example-humiocluster 8888:8080
 
 **6. Deploy Application gateway and enable AGIC**
 - Deploy Application Gateway Ingress Controller Add-on to access LogScale App from the Internet
