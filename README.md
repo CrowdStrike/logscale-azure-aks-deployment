@@ -15,7 +15,7 @@ Notes:
 
 **Deployment Overview:**
 
-![dep_overview](/docs/asset/dep-overview.png) 
+![dep-overview](/docs/asset/dep-overview.png) 
 
 **Functional Overview:**
 
@@ -48,7 +48,7 @@ Validate the cluster is up and running by checking kubernetes service status:
 - kubectl get svc
 
 **2. Deploy Kafka/ZooKeeper to the AKS cluster using the** [strimzi-kafka-operator](https://github.com/strimzi/strimzi-kafka-operator)
-  - Note: Default partition count is 24. Refer to [LogScale Digest Rules] (https://library.humio.com/falcon-logscale-self-hosted/cluster-management-digest-rules.html)
+  - Note: Default partition count is 24. Refer to the [LogScale Digest Rules](https://library.humio.com/falcon-logscale-self-hosted/cluster-management-digest-rules.html)
   - Deploy the strimzi-kafka-operator (kafka/k8s orchestration facility - [strimzi key features](https://strimzi.io/docs/operators/latest/overview.html#key-features-product_str))
     - Execute following commands in K8s environment
       - helm repo add strimzi [https://strimzi.io/charts/](https://strimzi.io/charts/)
@@ -89,7 +89,7 @@ Validate the cluster is up and running by checking kubernetes service status:
   - Verify that s3proxy pod and service are running.
 
 **4. Deploy LogScale**
-  - Note: This deployment uses NODE\_ROLES="all". For details, refer to [](https://library.humio.com/falcon-logscale-self-hosted/envar-node-roles.html) 
+  - Note: This deployment uses NODE\_ROLES="all". For details, refer to [NODE_ROLES](https://library.humio.com/falcon-logscale-self-hosted/envar-node-roles.html) 
   - Deploy LogScale Operator (see setup\_logscale.sh)
     - Obtain the latest stable version from [LogScale Operator Releases](https://github.com/humio/humio-operator/releases).
     - Apply LogScale CRDs & Operator
@@ -106,7 +106,7 @@ Validate the cluster is up and running by checking kubernetes service status:
         | Name | Value |
         | :-- | :-- |
         | USING\_EPHEMERAL\_DISKS | `true` |
-        | NODE\_ROLES | `all | ingestonly | httponly`
+        | NODE\_ROLES | `all\|ingestonly\|httponly`|
         | S3\_STORAGE\_ENDPOINT\_BASE | \<s3proxy endpoint\> |
         | S3\_STORAGE\_ACCESSKEY | \<Azure Storage a/c accesskey\> |
         | S3\_STORAGE\_SECRETKEY | \<Azure Storage a/c accesskey\> |
