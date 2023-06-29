@@ -89,7 +89,7 @@ Validate the cluster is up and running by checking kubernetes service status:
   - Verify that s3proxy pod and service are running.
 
 **4. Deploy LogScale**
-  - Note: This deployment uses NODE\_ROLES="all". For details, refer to the [NODE_ROLES documentation](https://library.humio.com/falcon-logscale-self-hosted/envar-node-roles.html) 
+  - Note: This deployment uses NODE\_ROLES="all". For details, refer to the [NODE_ROLES documentation](https://library.humio.com/falcon-logscale-self-hosted/envar-node-roles.html). 
   - Deploy LogScale Operator (see setup\_logscale.sh)
     - Obtain the latest stable version from [LogScale Operator Releases](https://github.com/humio/humio-operator/releases).
     - Apply LogScale CRDs & Operator
